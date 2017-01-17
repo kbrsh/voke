@@ -65,3 +65,7 @@ Emitting an event:
 emitter.emit('event');
 emitter.emit('event', {myCustomData: true});
 ```
+
+### License
+
+Licensed under the [MIT License](https://kingpixil.github.io/license) by [Kabir Shah](https://kabir.ml)
