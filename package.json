@@ -24,10 +24,12 @@
   },
   "homepage": "https://github.com/KingPixil/voke#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-header": "^1.8.8",
     "gulp-size": "^2.1.0",
-    "gulp-uglifyjs": "^0.6.2"
+    "gulp-uglifyjs": "^0.6.2",
+    "mocha": "^3.2.0"
   }
 }
