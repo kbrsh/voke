@@ -34,5 +34,15 @@ describe('Voke', function() {
       emitter.emit('evt');
       expect(tmp).to.equal('Called');
     });
+
+    it('should provide the event type', function() {
+      emitter.emit('evt');
+      expect(tmp2.type).to.equal('evt');
+    });
+
+    it('should be able to pass custom data', function() {
+      emitter.emit('evt', {custom: true});
+      expect(tmp2.custom).to.equal(true);
+    });
   });
 });
