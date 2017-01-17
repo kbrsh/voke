@@ -45,7 +45,7 @@ describe('Voke', function() {
       }
       emitter.on("off", handler);
       emitter.off("off", handler);
-      expect(emitter.events["off"]).to.equal([]);
+      expect(emitter.events["off"]).to.have.lengthOf(0);
     });
   });
 
