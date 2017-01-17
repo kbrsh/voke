@@ -5,7 +5,7 @@
   "main": "dist/voke.min.js",
   "scripts": {
     "build": "gulp",
-    "test": "gulp test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
