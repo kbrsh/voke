@@ -1,6 +1,10 @@
 'use strict';
 
 var gulp = require('gulp');
+var concat = require("gulp-concat");
+var header = require("gulp-header");
+var size = require("gulp-size");
+var uglify = require("gulp-uglifyjs");
 var pkg = require('./package.json');
 var comment = '\/*\r\n* Voke ' + pkg.version + '\r\n* Copyright 2017, Kabir Shah\r\n* https:\/\/github.com\/KingPixil\/voke\/\r\n* Free to use under the MIT license.\r\n* https:\/\/kingpixil.github.io\/license\r\n*\/\r\n';
 
