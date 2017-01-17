@@ -2,7 +2,7 @@
   "name": "voke",
   "version": "1.0.0",
   "description": "event emitter",
-  "main": "index.js",
+  "main": "dist/voke.min.js",
   "scripts": {
     "build": "gulp",
     "test": "gulp test"
