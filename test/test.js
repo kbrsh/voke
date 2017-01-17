@@ -13,7 +13,7 @@ describe('Voke', function() {
     });
   });
 
-  describe('#on', function() {
+  describe('#on()', function() {
     var tmp;
     it('should create a handler', function() {
       emitter.on('evt', function() {
