@@ -32,9 +32,16 @@
         return;
       }
 
+      var evtObj = meta || {};
+      evtObj.type = event;
+
+      if(this.events["*"]) {
+        for(var i = 0; i < this.events["*"].length; i++) {
+          this.events["*"][i](evtObj);
+        }
+      }
+
       for(var i = 0; i < this.events[event].length; i++) {
-      	var evtObj = meta || {};
-        evtObj.type = event;
       	this.events[event][i](evtObj);
       }
 
