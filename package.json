@@ -4,6 +4,7 @@
   "description": "event emitter",
   "main": "index.js",
   "scripts": {
+    "build": "gulp",
     "test": "gulp test"
   },
   "repository": {
