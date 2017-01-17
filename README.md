@@ -51,13 +51,6 @@ Removing event listeners:
 emitter.off('event2', handler);
 ```
 
-```js
-emitter.on('event', function(e) {
-  console.log(e);
-  // => {type: 'event', myCustomData: true}
-});
-```
-
 Global Event Listener:
 
 ```js
