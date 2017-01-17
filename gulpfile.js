@@ -26,11 +26,5 @@ gulp.task('minify', ['build'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-// Run Tests
-gulp.task('test', function () {
-
-});
-
-
 // Default task
 gulp.task('default', ['build', 'minify']);
