@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/KingPixil/voke#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-size": "^2.1.0",
+    "gulp-uglifyjs": "^0.6.2"
   }
 }

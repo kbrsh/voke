@@ -7,17 +7,18 @@ var comment = '\/*\r\n* Voke ' + pkg.version + '\r\n* Copyright 2017, Kabir Shah
 // Build Voke
 gulp.task('build', function () {
   return gulp.src(['./index.js'])
-    .pipe($.header(comment))
-    .pipe($.size())
+    .pipe(concat('voke.js'))
+    .pipe(header(comment))
+    .pipe(size())
     .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('minify', ['build'], function() {
   return gulp.src(['./dist/voke.js'])
     .pipe(uglify())
-    .pipe($.header(comment))
-    .pipe($.size())
-    .pipe($.concat('voke.min.js'))
+    .pipe(header(comment))
+    .pipe(size())
+    .pipe(concat('voke.min.js'))
     .pipe(gulp.dest('./dist/'));
 });
 
