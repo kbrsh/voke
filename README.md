@@ -40,6 +40,22 @@ emitter.on('event', function(e) {
   console.log(e);
   // => {type: 'event', myCustomData: true}
 });
+
+var handler = function() {};
+emitter.on('event2', handler);
+```
+
+Removing event listeners:
+
+```js
+emitter.off('event2', handler);
+```
+
+```js
+emitter.on('event', function(e) {
+  console.log(e);
+  // => {type: 'event', myCustomData: true}
+});
 ```
 
 Global Event Listener:
