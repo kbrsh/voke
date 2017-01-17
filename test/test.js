@@ -31,7 +31,7 @@ describe('Voke', function() {
     describe("global event", function() {
       it('should create a handler', function() {
         emitter.on('*', function(e) {
-          tmp2 = e;
+          tmp3 = e;
         });
         expect(emitter.events['*'][0]).to.be.a('function');
       });
@@ -59,6 +59,13 @@ describe('Voke', function() {
         emitter.emit('nonexistent');
       }
       expect(errFn).to.throw(Error);
+    });
+
+    describe('global event emit', function() {
+      it('should emit a global event', function() {
+        emitter.emit('evt');
+        expect(tmp3.type).to.equal("evt");
+      });
     });
   });
 });
