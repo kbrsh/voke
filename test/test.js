@@ -38,6 +38,17 @@ describe('Voke', function() {
     });
   });
 
+  describe("#off()", function() {
+    it('should remove an event listener', function() {
+      var handler = function() {
+        console.log("Handling");
+      }
+      emitter.on("off", handler);
+      emitter.off("off", handler);
+      expect(emitter.events["off"]).to.equal([]);
+    });
+  });
+
   describe('#emit()', function() {
     it('should emit an event', function() {
       emitter.emit('evt');
