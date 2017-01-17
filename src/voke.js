@@ -19,6 +19,13 @@
       }
     }
 
+    Voke.prototype.off = function(event, action) {
+      var index = this.events[event].indexOf(action);
+      if(index !== -1) {
+      	this.events[event].splice(index, 1);
+      }
+    }
+
     Voke.prototype.emit = function(event, meta) {
     	if(!this.events[event]) {
       	error("Event '" + event + "' Not Found");
