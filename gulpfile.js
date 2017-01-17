@@ -10,7 +10,7 @@ var comment = '\/*\r\n* Voke ' + pkg.version + '\r\n* Copyright 2017, Kabir Shah
 
 // Build Voke
 gulp.task('build', function () {
-  return gulp.src(['./index.js'])
+  return gulp.src(['./src/voke.js'])
     .pipe(concat('voke.js'))
     .pipe(header(comment))
     .pipe(size())
