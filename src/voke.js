@@ -3,7 +3,7 @@
 }(this, function() {
 
 		var error = function(msg) {
-    	console.error('[Wake] ERR: ' + msg);
+    	throw new Error('[Wake] ERR: ' + msg);
     }
 
     function Voke() {

@@ -44,5 +44,12 @@ describe('Voke', function() {
       emitter.emit('evt', {custom: true});
       expect(tmp2.custom).to.equal(true);
     });
+
+    it("should throw error if event doesn't exist", function() {
+      var errFn = function() {
+        emitter.emit('nonexistent');
+      }
+      expect(errFn).to.throw(Error);
+    });
   });
 });
