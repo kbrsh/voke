@@ -38,7 +38,7 @@ Adding event listeners:
 ```js
 emitter.on('event', function(e) {
   console.log(e);
-  // => {type: 'event', myCustomData: true}
+  // {type: 'event', myCustomData: true}
 });
 
 var handler = function() {};
