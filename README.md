@@ -55,6 +55,7 @@ Global Event Listener:
 
 ```js
 emitter.on('*', function(e) {
+  // gets event object from all events
   console.log(e);
 });
 ```
