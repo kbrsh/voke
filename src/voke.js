@@ -41,14 +41,14 @@
       var evtObj = meta || {};
       evtObj.type = event;
 
+      for(var i = 0; i < this.events[event].length; i++) {
+      	this.events[event][i](evtObj);
+      }
+
       if(this.events["*"]) {
         for(var i = 0; i < this.events["*"].length; i++) {
           this.events["*"][i](evtObj);
         }
-      }
-
-      for(var i = 0; i < this.events[event].length; i++) {
-      	this.events[event][i](evtObj);
       }
 
     }
