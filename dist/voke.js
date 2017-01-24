@@ -27,6 +27,12 @@
     }
 
     Voke.prototype.off = function(event, action) {
+      if(!event) {
+        for(var handler in this.events) {
+          this.events[handler] = [];
+        }
+        return;
+      }
       var index = this.events[event].indexOf(action);
       if(index !== -1) {
       	this.events[event].splice(index, 1);
@@ -42,14 +48,14 @@
       var evtObj = meta || {};
       evtObj.type = event;
 
+      for(var i = 0; i < this.events[event].length; i++) {
+      	this.events[event][i](evtObj);
+      }
+
       if(this.events["*"]) {
         for(var i = 0; i < this.events["*"].length; i++) {
           this.events["*"][i](evtObj);
         }
-      }
-
-      for(var i = 0; i < this.events[event].length; i++) {
-      	this.events[event][i](evtObj);
       }
 
     }
