@@ -20,6 +20,12 @@
     }
 
     Voke.prototype.off = function(event, action) {
+      if(!event) {
+        for(var handler in this.events) {
+          this.events[handler] = [];
+        }
+        return;
+      }
       var index = this.events[event].indexOf(action);
       if(index !== -1) {
       	this.events[event].splice(index, 1);
