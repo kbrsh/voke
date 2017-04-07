@@ -1,5 +1,5 @@
 /*
-* Voke 1.0.1
+* Voke 1.0.2
 * Copyright 2017, Kabir Shah
 * https://github.com/KingPixil/voke/
 * Free to use under the MIT license.
