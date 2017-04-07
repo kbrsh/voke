@@ -52,8 +52,14 @@ describe('Voke', function() {
       emitter.on("offWithoutParams1", function() {});
       emitter.on("offWithoutParams2", function() {});
       emitter.off();
-      expect(emitter.events["offWithoutParams1"]).to.have.lengthOf(0);
-      expect(emitter.events["offWithoutParams2"]).to.have.lengthOf(0);
+      expect(emitter.events).to.deep.equal({});
+    });
+    it('should remove all handlers for an event', function() {
+      var emitter = new Voke();
+      emitter.on("offAllHandlers", function() {});
+      emitter.on("offAllHandlers", function() {});
+      emitter.off("offAllHandlers");
+      expect(emitter.events["offAllHandlers"]).to.have.lengthOf(0);
     });
   });
 

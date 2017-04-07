@@ -2,52 +2,48 @@
   (typeof module === "object" && module.exports) ? module.exports = factory() : root.Voke = factory();
 }(this, function() {
 
-		var error = function(msg) {
-    	throw new Error('[Wake] ERR: ' + msg);
-    }
-
     function Voke() {
     	this.events = {};
     }
 
 
-    Voke.prototype.on = function(event, action) {
-    	if(this.events[event]) {
-      	this.events[event].push(action);
+    Voke.prototype.on = function(event, handler) {
+      var handlers = this.events[event];
+    	if(handlers !== undefined) {
+      	handlers.push(handler);
       } else {
-      	this.events[event] = [action];
+      	this.events[event] = [handler];
       }
     }
 
-    Voke.prototype.off = function(event, action) {
-      if(!event) {
-        for(var handler in this.events) {
-          this.events[handler] = [];
+    Voke.prototype.off = function(event, handler) {
+      if(event === undefined) {
+        this.events = {};
+      } else if(handler === undefined) {
+        this.events[event] = [];
+      } else {
+        var handlers = this.events[event];
+        var index = handlers.indexOf(handler);
+        if(index !== -1) {
+        	handlers.splice(index, 1);
         }
-        return;
-      }
-      var index = this.events[event].indexOf(action);
-      if(index !== -1) {
-      	this.events[event].splice(index, 1);
       }
     }
 
-    Voke.prototype.emit = function(event, meta) {
-    	if(!this.events[event]) {
-      	error("Event '" + event + "' Not Found");
-        return;
-      }
+    Voke.prototype.emit = function(event, customMeta) {
+      var meta = customMeta || {};
+      meta.type = event;
 
-      var evtObj = meta || {};
-      evtObj.type = event;
+      var handlers = this.events[event];
+      var globalHandlers = this.events["*"];
 
-      for(var i = 0; i < this.events[event].length; i++) {
-      	this.events[event][i](evtObj);
+      for(var i = 0; i < handlers.length; i++) {
+      	handlers[i](meta);
       }
 
       if(this.events["*"]) {
-        for(var i = 0; i < this.events["*"].length; i++) {
-          this.events["*"][i](evtObj);
+        for(var i = 0; i < globalHandlers.length; i++) {
+          globalHandlers[i](meta);
         }
       }
 
